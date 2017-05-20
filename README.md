@@ -125,3 +125,16 @@ this.async(function() { /* ... */}, 100);
 ```js
 setTimout(() => { /* ... */}, 100);
 ```
+
+---
+
+**Before**
+```js
+this.fire('some-event');
+```
+
+**After**
+```js
+// composed: true => bubble across the boundary between the shadow DOM and the regular DOM
+this.dispatchEvent(new CustomEvent('some-event', { detail: {}, bubbles: true, composed: true }));
+```

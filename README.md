@@ -172,3 +172,22 @@ hostAttributes: {
 ```js
 this._ensureAttribute('tabindex', '0');
 ```
+
+---
+
+**Before**
+```js
+this.getComputedStyleValue('--something');
+```
+
+**After**
+This inconvenience is known:
+https://github.com/webcomponents/shadycss/issues/83
+
+```js
+if (window.ShadyCSS) {
+  style = ShadyCSS.getComputedStyleValue(this, '--something');
+} else {
+  style = getComputedStyle(this).getPropertyValue('--something');
+}
+```

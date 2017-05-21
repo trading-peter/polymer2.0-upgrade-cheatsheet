@@ -158,3 +158,17 @@ mixin(target, source) {
 // If copying enumerable and own properties is enough (option defaults for example)
 Object.assign(target, ...sources)
 ```
+
+---
+
+**Before**
+```js
+hostAttributes {
+  'tabindex': '0'
+}
+```
+
+**After**
+```js
+this._ensureAttribute('tabindex': '0');
+```

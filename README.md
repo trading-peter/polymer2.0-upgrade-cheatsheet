@@ -170,5 +170,5 @@ hostAttributes: {
 
 **After**
 ```js
-this._ensureAttribute('tabindex': '0');
+this._ensureAttribute('tabindex', '0');
 ```

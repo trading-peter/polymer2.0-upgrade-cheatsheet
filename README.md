@@ -154,4 +154,7 @@ mixin(target, source) {
   }
   return target;
 }
+
+// If copying enumerable and own properties is enough (option defaults for example)
+Object.assign(target, ...sources)
 ```

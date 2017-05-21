@@ -163,7 +163,7 @@ Object.assign(target, ...sources)
 
 **Before**
 ```js
-hostAttributes {
+hostAttributes: {
   'tabindex': '0'
 }
 ```

@@ -138,3 +138,20 @@ this.fire('some-event');
 // composed: true => bubble across the boundary between the shadow DOM and the regular DOM
 this.dispatchEvent(new CustomEvent('some-event', { detail: {}, bubbles: true, composed: true }));
 ```
+
+---
+
+**Before**
+```js
+this.mixin(target, source);
+```
+
+**After**
+```js
+mixin(target, source) {
+  for (var i in source) {
+    target[i] = source[i];
+  }
+  return target;
+}
+```

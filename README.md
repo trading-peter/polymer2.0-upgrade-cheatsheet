@@ -79,7 +79,7 @@ if (window.ShadyCSS) {
 }
 ```
 
-An issue exists at webcomponents/shadycss#83 to improve the fidelity of the polyfill by patching the native window.getComputedStyle to do the good thing without a conditional.
+An issue exists at [webcomponents/shadycss#83](https://github.com/webcomponents/shadycss/issues/83) to improve the fidelity of the polyfill by patching the native window.getComputedStyle to do the good thing without a conditional.
 
 ---
 

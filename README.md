@@ -69,7 +69,17 @@ this.getComputedStyleValue()
 ```
 
 **After**  
-???
+For now, need to use custom ShadyCSS API when the polyfill is loaded:
+
+```js
+if (window.ShadyCSS) {
+  style = ShadyCSS.getComputedStyleValue(el, '--something');
+} else {
+  style = getComputedStyle(el).getPropertyValue('--something');
+}
+```
+
+An issue exists at webcomponents/shadycss#83 to improve the fidelity of the polyfill by patching the native window.getComputedStyle to do the good thing without a conditional.
 
 ---
 
@@ -79,7 +89,14 @@ this.getContentChildren
 ```
 
 **After**  
-???
+Just write the platform code that will do this: find the slot, get the `assignedNodes`, and filter down to just the elements (ignore comments & text nodes):
+
+```js
+this.shadowRoot
+  .querySelector('slot')
+  .assignedNodes({flatten:true})
+  .filter(n.nodeType === Node.ELEMENT_NODE)
+```
 
 ---
 
@@ -89,7 +106,16 @@ this.getEffectiveChildren
 ```
 
 **After**  
-???
+Use `Polymer.FlattenedNodesObserver`'s `getFlattenedNodes` helper method, and filter them down to just the elements (ignore comments & text nodes):
+
+```html
+<link rel="import" href="polymer/lib/utils/flattened-nodes-observer.html">
+```
+
+```js
+let effectiveChildren = Polymer.FlattenedNodesObserver.getFlattenedNodes(this)
+  .filter(n.nodeType === Node.ELEMENT_NODE)
+```
 
 ---
 

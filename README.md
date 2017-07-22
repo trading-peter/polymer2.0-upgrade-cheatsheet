@@ -95,7 +95,7 @@ Just write the platform code that will do this: find the slot, get the `assigned
 this.shadowRoot
   .querySelector('slot')
   .assignedNodes({flatten:true})
-  .filter(n.nodeType === Node.ELEMENT_NODE)
+  .filter(n => n.nodeType === Node.ELEMENT_NODE)
 ```
 
 ---
@@ -114,7 +114,7 @@ Use `Polymer.FlattenedNodesObserver`'s `getFlattenedNodes` helper method, and fi
 
 ```js
 let effectiveChildren = Polymer.FlattenedNodesObserver.getFlattenedNodes(this)
-  .filter(n.nodeType === Node.ELEMENT_NODE)
+  .filter(n => n.nodeType === Node.ELEMENT_NODE)
 ```
 
 ---

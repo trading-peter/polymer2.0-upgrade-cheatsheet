@@ -14,6 +14,18 @@ this.shadowRoot
 
 **Before**
 ```js
+Polymer.dom(this).getOwnerRoot()
+```
+
+**After**
+```js
+this.getRootNode()
+```
+
+---
+
+**Before**
+```js
 Polymer.dom(event).localTarget
 ```
 

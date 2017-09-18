@@ -10,6 +10,16 @@ Polymer.dom(this.root)
 this.shadowRoot
 ```
 
+---**Before**
+```js
+this.$$('some-selector');
+```
+
+**After**
+```js
+this.shadowRoot.querySelector('some-selector')
+```
+
 ---
 
 **Before**

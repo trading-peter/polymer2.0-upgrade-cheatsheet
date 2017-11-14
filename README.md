@@ -231,3 +231,20 @@ hostAttributes: {
 ```js
 this._ensureAttribute('tabindex', '0');
 ```
+
+---
+
+**Before**
+```js
+this.debounce('debouncerJob', function() {}, 100);
+```
+
+**After**
+```html
+<link rel="import" href="bower_components/polymer/lib/utils/debounce.html">
+```
+```js
+this._debouncer = Polymer.Debouncer.debounce(this._debouncer,
+    Polymer.Async.timeOut.after(250),
+    () => { this.doSomething() });
+```

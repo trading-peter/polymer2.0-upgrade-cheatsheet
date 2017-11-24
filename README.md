@@ -248,3 +248,24 @@ this._debouncer = Polymer.Debouncer.debounce(this._debouncer,
     Polymer.Async.timeOut.after(250),
     () => { this.doSomething() });
 ```
+
+---
+
+**Before**  
+```html
+<link rel="import" href="polymer/polymer.html">
+
+<button on-tap="handler">I react to a gesture event</button>
+```
+
+**After**  
+```html
+<link rel="import" href="polymer/polymer.html">
+<link rel="import" href="polymer/lib/mixins/gesture-event-listeners.html">
+```
+
+```js
+class TestEvent extends Polymer.GestureEventListeners(Polymer.Element) {
+  ...
+}
+```

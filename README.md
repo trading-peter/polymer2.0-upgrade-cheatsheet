@@ -267,5 +267,10 @@ this._debouncer = Polymer.Debouncer.debounce(this._debouncer,
 ```js
 class TestEvent extends Polymer.GestureEventListeners(Polymer.Element) {
   ...
+  
+  // To imperatively adding a listener
+  addListener() {
+    Polymer.Gestures.addListener(this, 'track', e => this.trackHandler(e));
+  }
 }
 ```

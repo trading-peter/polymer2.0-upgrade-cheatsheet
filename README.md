@@ -14,6 +14,18 @@ this.shadowRoot
 
 **Before**
 ```js
+this.domHost
+```
+
+**After**
+```js
+this.getRootNode().host
+```
+
+---
+
+**Before**
+```js
 this.$$('some-selector');
 ```
 

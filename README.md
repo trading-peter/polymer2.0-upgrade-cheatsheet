@@ -93,7 +93,7 @@ Polymer.dom(this).observeNodes(this._nodesChanged)
 ```js
 <link rel="import" href="/bower_components/polymer/lib/utils/flattened-nodes-observer.html">
 
-this._observer = new Polymer.FlattenedNodesObserver(this._nodesChanged);
+this._observer = new Polymer.FlattenedNodesObserver(this, this._nodesChanged);
 this._observer.disconnect();
 ```
 
